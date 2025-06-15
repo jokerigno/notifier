@@ -16,16 +16,16 @@ Following features are implemented:
 
 __NOTIFY__ = "notify/"
 __TTS__ = "tts/"
-SUB_TTS = [("[\*\-\[\]_\(\)\{\~\|\}\s]+"," ")]
+SUB_TTS = [(r"[\*\-\[\]_\(\)\{\~\|\}\s]+", " ")]
 SUB_VOICE = [
-    ("[\U00010000-\U0010ffff]", ""),  # strip emoji
-    ("[\?\.\!,]+(?=[\?\.\!,])", ""),  # Exclude duplicate
-    ("(\s+\.|\s+\.\s+|[\.])(?! )(?![^{]*})(?![^\d.]*\d)", ". "),
-    ("<.*?>",""), # HTML TAG
+    (r"[\U00010000-\U0010ffff]", ""),  # strip emoji
+    (r"[\?\.\!,]+(?=[\?\.\!,])", ""),  # Exclude duplicate
+    (r"(\s+\.|\s+\.\s+|[\.])(?! )(?![^{]*})(?![^\d.]*\d)", ". "),
+    (r"<.*?>", ""), # HTML TAG
     ("&", " and "),  # escape
     # ("(?<!\d),(?!\d)", ", "),
-    ("[\n\*]", " "),
-    (" +", " "),
+    (r"[\n\*]", " "),
+    (r" +", " "),
 ]
 
 CONF_MEDIA_PLAYER = "media_player"
